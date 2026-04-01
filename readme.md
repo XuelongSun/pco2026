@@ -2,7 +2,7 @@
 2025-2026-2 @ GZHU, CHN
 
 
-**Goal of this course is to made a 8-Bit programmable CPU from NAND.**
+**Goal of this course is to build a 8-Bit programmable CPU from NAND.**
 
 
 ![](8bitCPU.png)
@@ -14,13 +14,11 @@
   + Logical Gates and Boolean Operation
   + Half-adder, full adder
   + 2'complement and Subtraction
-  + Multiplexor
-  + 3-8 Decoder
+  + Multiplexor and 3-8 Decoder
   + Arithmetic Logical Unit (ALU) Design
 + Chapter 2 - Memory
   + 1bit memory
-  + latches: SR, D
-  + Flip Flop
+  + Latches and Flip Flops
   + Register
   + RAM/ROM
   + Program Counter
