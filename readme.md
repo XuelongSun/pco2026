@@ -25,9 +25,22 @@
   + 寄存器 Register
   + 存储器扩展与总线 Memory Extension and Bus
   + 存储器的层次结构 Memory Architecture
-  + 随机和只读存储器/Flash RAM/ROM
+  + 随机和只读存储器/Flash RAM/ROM/Flash
   + 程序计数器 Program Counter
 + 第三章-控制单元 Chapter 3 - Control Unit (CU)
-  + 
+  + 控制指令
+  + 微程序控制
+  + 硬布线控制
+
 ##### Labs
++ Lab 1 — LogicCircuit, NAND-based Building Blocks and Markdown Report
+实验1 — LogicCircuit、基于NAND的基本部件和Markdown报告
+
++ Lab 2
++ Lab 3
++ Lab 4
++ Lab 5
++ Lab 6
++ Lab 7
++ Lab 8
 
