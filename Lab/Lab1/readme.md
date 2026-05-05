@@ -1,5 +1,5 @@
 ### Lab 1 — LogicCircuit, NAND-based Building Blocks and Markdown Report
-### 实验1——LogicCircuit、基于NAND的基本部件和Markdown报告
+### 实验1 — LogicCircuit、基于NAND的基本部件和Markdown报告
 
 *2025-2026-2 Principal of Computer Organization
 Xuelong SUN @ GZHU*
