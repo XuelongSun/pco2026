@@ -1,6 +1,6 @@
 ## 8-bit CPU Laboratory Course / 8位CPU实验课程
 *2025-2026-2 Principal of Computer Organization
-Xuelong SUN @ GZHU*
+XSUN@GZHU*
 
 
 ### 1. Course Positioning / 课程定位
@@ -26,7 +26,7 @@ The final goal is that each student or student team independently builds a **pro
 | Lab | English title | 中文标题 | Theory alignment 理论课对应 |Score Weight 分数权重|
 |:---:|---|---|---|:---:|
 | [1](Lab1/readme.md) | LogicCircuit, Markdown, and NAND-based gates | LogicCircuit、Markdown与NAND基本门 | Chapter 1: logic gates and computation | 6% |
-| 2 | Python basics for PCO | 面向计组的Python基础 | tool preparation | 8% |
+| 2 | Python basics for PCO | 面向计组的Python基础和7段数码管 | tool preparation | 8% |
 | 3 | 8-bit ALU and flags | 8位ALU与标志位 | Chapter 1: ALU integration |10% |
 | 4 | Registers, program counter, and bus | 寄存器、程序计数器与总线 | Chapter 2: storage elements | 10% |
 | 5 | Memory subsystem and instruction fetch | 存储系统与取指周期 | Chapter 2: RAM/ROM and Chapter 4 preparation | 10% |

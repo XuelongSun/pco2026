@@ -32,14 +32,17 @@
   + 微程序控制 Microprogrammed Control
   + 硬布线控制 Hardwired Control
 
-#### Lab
+#### Labs
 #### 实验
 + [Overview 总览](Lab/readme.md)
 + [Lab 1 — LogicCircuit, NAND-based Building Blocks and Markdown Report](Lab/Lab1/readme.md)
 
   实验1 — LogicCircuit、基于NAND的基本部件和Markdown报告
 
-+ Lab 2
++ [Lab 2 — Python basics for PCO and 7-segment display](Lab/Lab2/readme.md)
+
+  实验2 — 面向计组的Python基础和7段数码管
+
 + Lab 3
 + Lab 4
 + Lab 5

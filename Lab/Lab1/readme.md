@@ -2,7 +2,7 @@
 ### 实验1 — LogicCircuit、基于NAND的基本部件和Markdown报告
 
 *2025-2026-2 Principal of Computer Organization
-Xuelong SUN @ GZHU*
+XSUN@GZHU*
 
 #### 1. Goal / 实验目标:
 

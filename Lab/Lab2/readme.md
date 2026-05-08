@@ -1,8 +1,8 @@
-### Lab 2 — Python basics for PCO
-### 实验2 — 面向计组的Python基础
+### Lab 2 — Python basics for PCO and 7-segment display
+### 实验2 — 面向计组的Python基础和7段数码管
 
 *2025-2026-2 Principal of Computer Organization
-Xuelong SUN @ GZHU*
+XSUN@GZHU*
 
 #### 1. Goal / 实验目标:
 完成本实验后，能够：
@@ -17,17 +17,23 @@ Xuelong SUN @ GZHU*
 ##### 2.1 Python Basic / Python 基础
 + 下载和安装[Python 3.x](https://www.python.org/)
 + 在VSCode中安装Python插件:
-  ![](vscode-python-extensions.png)
+  ![](images/vscode-python-extensions.png)
 + 运行第一个Python程序
   新建一个`hello_world.py`文件，写入以下内容：
   ```python
   print('Hello World')
   ```
   点击vscode右上角的三角形符号运行，会在终端打印字符串`Hello World`。
-  你可以在命令行运行Python:
+
+  当然，你可以在命令行中运行Python:
+
   ```shell
   python hello_world.py
   ```
++ \* 使用 [Jupyter Notebook](https://jupyter.org/) 交互式运行 Python
+  + 网页版
+  + VSCode插件 + IPython
+ 
 + 基本类型：变量，字符串，列表，字典
   > Python是动态语言，不需要指定变量类型
   ```py
@@ -36,6 +42,7 @@ Xuelong SUN @ GZHU*
   a = "a is a string" # 字符串，单引和双引号均可
   a = [1,2,3,4] # 列表
   print(a[0]) # 列表从0开始索引
+  print(a[0:2]) # 可以用":"进行数组切片，会打印1，2，3，4 
   a = {'name':'张三','job':'律师','age':16} # 字典：键-值对
   print(a['name']) # 由键访问值
   ```
@@ -86,6 +93,17 @@ Xuelong SUN @ GZHU*
   print(m.func(m.CNT))
   ```
 + 字符串
+  在Python中我们使用单引号`''`，或者双引号`""`来表示一个字符串：
+  ```python
+  s = "Hello PCO"
+  s2 = 'Hello World'
+  s3 = "I'm a Boy"
+  ```
+  字符串本质是是一个字符列表，因此可以进行索引：
+  ```python
+  s = "Hello PCO"
+  c = s[2] # c = 'l'
+  ```
 + 文件读写
   因为我们最终的项目需要先写一个汇编代码`.asm`，我们需要用Python把这个汇编代码转成机器码（汇编文件`.asm` $\to$ 二进制文件`.bin`），我们再把二进制文件加载到我们自制计算机的RAM中。这里涉及到利用Python读取`.asm`(读文件)然后经过处理生成`.bin`文件(写文件)。
   
@@ -104,7 +122,7 @@ Xuelong SUN @ GZHU*
   with open("filename", "wb+") as fd:
     data = fd.readlines()
   ```
-  > ps: 请善于利用AI帮助你快速学习Python语法。AI时代，任何编程语言的语法已不再重要，重要的是：出色的想法、巧妙地数据结构思维，以及对计算机底层的理解！
+  > ps: 请善于利用AI帮助你快速学习Python语法。AI时代，任何编程语言的语法已不再重要，重要的是：出色的想法、巧妙的数据结构思维，以及对计算机底层的理解！
 
 ##### 2.2 数码管
 + 基本原理
