@@ -43,7 +43,10 @@
 
   实验2 — 面向计组的Python基础和7段数码管
 
-+ Lab 3
++ [Lab 3 — 8-bit ALU and Flags](Lab/Lab3/readme.md)
+  
+  实验3——8位ALU与标志位
+
 + Lab 4
 + Lab 5
 + Lab 6

@@ -192,7 +192,7 @@ XSUN@GZHU*
 #### 3. 实验任务
 
 ##### 任务1：简易汇编器
-用Python实现一个简易的汇编器，将理论课第三章所讲的第一个电路的汇编代码文件`code.asm`：
+用Python实现一个简易的汇编器, 将内容如下的汇编代码文件`code.asm`：
 ```asm
 Load 0
 Store 1
@@ -200,10 +200,12 @@ Load 1
 Store 2
 Store 3
 ```
-编译成一个二进制文件`code.bin`(编译规则自定)，并导入到LogicCircuit的RAM中。
+编译成一个二进制文件`code.bin`(编译规则自定，比如4bit二进制对应一行语句，最高位表示`Load/Store`, 第三位表示地址)，并**导入到LogicCircuit的RAM中**：。
+![](images/circuit.png)
+
 要求：
 + 给出完整python代码
-+ 给出LogicCircuit的RAM数据表的截图
++ 给出LogicCircuit的RAM数据表的截图（如上图所示）
 + 此任务需提交:`code.asm`，`compiler.py`,`code.bin`文件
 
 ##### 任务2：十进制数码管的实现
