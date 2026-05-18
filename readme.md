@@ -47,9 +47,11 @@
   
   实验3——8位ALU与标志位
 
-+ Lab 4
++ [Lab 4 — Registers, Program Counter, and Bus](Lab/Lab4/readme.md)
+
+  实验4 — 寄存器、程序计数器与总线
+
 + Lab 5
 + Lab 6
 + Lab 7
 + Lab 8
-

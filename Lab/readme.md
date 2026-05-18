@@ -29,9 +29,8 @@ The final goal is that each student or student team independently builds a **pro
 | 2 | Python basics for PCO | 面向计组的Python基础和7段数码管 | tool preparation | 8% |
 | 3 | 8-bit ALU and flags | 8位ALU与标志位 | Chapter 1: ALU integration |10% |
 | 4 | Registers, program counter, and bus | 寄存器、程序计数器与总线 | Chapter 2: storage elements | 10% |
-| 5 | Memory subsystem and instruction fetch | 存储系统与取指周期 | Chapter 2: RAM/ROM and Chapter 4 preparation | 10% |
-| 6 | ISA design and assembler | 指令系统设计与汇编器 | Chapter 4: ISA and architecture | 12% |
-| 7 | Microprogrammed control unit | 微程序控制器 | Chapter 3: microprogrammed control | 14% |
+| 5-6 | CPU hardware architecture and microprogrammed control | CPU硬件架构与微程序控制 | Chapter 3-4 | 24% |
+| 7 | ISA design and assembler | 指令系统设计与汇编器 | Chapter 4: ISA and architecture | 12% |
 | 8 | CPU integration and demonstration | CPU集成与演示 | Chapter 4: full CPU architecture | 30% ([see 3.](#3-final-outcome-grading-rubric--最终成果评分细则))|
 ---
 
