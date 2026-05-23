@@ -31,7 +31,11 @@
   + 控制指令 Control Instruction
   + 微程序控制 Microprogrammed Control
   + 硬布线控制 Hardwired Control
-
++ [第四章-CPU和指令集架构 Chapter 4 - CPU and Instruction Set Architecture (ISA)](/Chpater-4/readme.md)
+  + 指令加载与封装
+  + 寄存器控制器
+  + 指令集与寻址方式
+  + 
 #### Labs
 #### 实验
 + [Overview 总览](Lab/readme.md)
