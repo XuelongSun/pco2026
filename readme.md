@@ -31,11 +31,12 @@
   + 控制指令 Control Instruction
   + 微程序控制 Microprogrammed Control
   + 硬布线控制 Hardwired Control
-+ [第四章-CPU和指令集架构 Chapter 4 - CPU and Instruction Set Architecture (ISA)](/Chpater-4/readme.md)
-  + 指令加载与封装
-  + 寄存器控制器
-  + 指令集与寻址方式
-  + 
++ [第四章-CPU Chapter 4 - CPU](/Chapter-4/readme.md)
+  + 指令集架构 Instruction Set Architecture (ISA)
+  + 取指令 Fetch Instruction
+  + 执行指令 Execute Instruction
+  + CPU硬件架构 CPU Hardware Architecture
+  + 微程序设计 Microprogram Design
 #### Labs
 #### 实验
 + [Overview 总览](Lab/readme.md)
@@ -49,7 +50,7 @@
 
 + [Lab 3 — 8-bit ALU and Flags](Lab/Lab3/readme.md)
   
-  实验3——8位ALU与标志位
+  实验3 - 8位ALU与标志位
 
 + [Lab 4 — Registers, Program Counter, and Bus](Lab/Lab4/readme.md)
 
