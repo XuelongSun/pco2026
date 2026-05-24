@@ -1,5 +1,5 @@
-### Lab 5 — CPU Architecture 1: Power and Register Controller
-### 实验5 — CPU架构1: 电源和寄存器控制器
+### Lab 5 — CPU Hardware Architecture 1
+### 实验5 — CPU硬件架构1
 
 #### 1. 实验目标
 完成CPU架构的第一部分的搭建，寄存器控制。

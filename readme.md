@@ -50,13 +50,19 @@
 
 + [Lab 3 — 8-bit ALU and Flags](Lab/Lab3/readme.md)
   
-  实验3 - 8位ALU与标志位
+  实验3 — 8位ALU与标志位
 
 + [Lab 4 — Registers, Program Counter, and Bus](Lab/Lab4/readme.md)
 
   实验4 — 寄存器、程序计数器与总线
 
-+ Lab 5
-+ Lab 6
-+ Lab 7
-+ Lab 8
++ [Lab 5 — CPU Hardware Architecture 1](Lab/Lab5/readme.md)
+  
+  实验5 — CPU硬件架构1
+
++ [Lab 6 — ISA design and assembler](Lab/Lab6/readme.md)
+  
+  实验6 — 指令系统设计与汇编器
+
++ [Lab 7](Lab/Lab7/readme.md)
++ [Lab 8](Lab/Lab8/readme.md)
