@@ -158,14 +158,32 @@ with open(input_file, encoding='utf8') as fd:
 
 # 第一遍解析标签
 for index, line in enumerate(lines):
-    pass
+    if source.endswith(":"):
+        # 以冒号结尾为标签
+        # 处理
+        pass
 
 # 第二遍解析操作数，转成操作码
 for index, line in enumerate(lines):
+    # 去除多余的空格
+    source = line.strip()
+    if source.endswith(":"):
+        # 如果是标签就跳过进行下一句
+        continue
+    # 用逗号分隔代码, 得到操作码和操作数
+    tmp = source.split(',')
+    # 如若source = "MOV A, B"，则tmp = ['MOV A', 'B']
+    # 继续处理，然后按照是几地址指令分情况转码
+    ir = ?
+    dst = ?
+    src = ?
+    # 最后将结果写入results
+    results.append([ir, dst, src])
     pass
 
 # 生成.bin文件 - RAM镜像
 with open(output_file, 'wb+') as fd:
+    # 遍历results, 每个r是3个数，每个占一字节，共3字节
     for r in results:
         for v in r:
             fd.write(v.to_bytes(1, byteorder='little'))
