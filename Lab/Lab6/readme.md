@@ -91,7 +91,7 @@ INSTRUCTION_SET = {
     # 2地址
     2: {
         MOV: {
-            (AM_REG, AM_IMM):[] # []内是微指令，暂时可以留空, 后续实验会补上
+            (AM_REG, AM_IMM):[] # []内是微指令，暂时可以留空, 后续实验硬件设计完成后会补上
             (AM_REG, AM_REG):[]
         },
         ADD:{
@@ -190,10 +190,15 @@ with open(output_file, 'wb+') as fd:
 ```
 
 ##### 任务3：汇编器验证
-1. 将实验材料提供的`program.asm`转化成二进制机器码`program.bin`。
-2. 将`program.bin`加载到LogicCircuit的RAM(8bit地址8bit数据)中并截图。
+1. 将实验材料提供的`program.asm`转化成二进制机器码`program.bin`，并加载到LogicCircuit的RAM(8bit地址8bit数据)中并截图。
 3. 编写一个计算斐波那契数列的汇编代码`fibonacci.asm`并转化成二进制机器码`fibonacci.bin`。
-   提示：斐波那契递推公式：$x(n) = x(n-1) + x(n-2), n > 2\in Z^+ $, $x(0)=0, x(1)=1$
+   提示：斐波那契递推公式：
+   
+   $$
+   x(n) = x(n-1) + x(n-2), n > 2\in Z^+
+   $$, 
+   
+   并且 $x(0)=0, x(1)=1$
 
 ##### *选做任务：
 升级汇编器，使其支持：
@@ -203,8 +208,7 @@ with open(output_file, 'wb+') as fd:
   ; this is a comment
   MOV D, C
   ```
-+ 十六进制常量，例如 `0x0A`；
-+ 二进制常量，例如 `0b00001010`；
++ 十六进制常量和二进制常量，例如 `0x0A`, `0b00001010`；
 + 标签或指令未知时给出带源代码行号的错误报告。
 
 #### 4. 实验报告提交
