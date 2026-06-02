@@ -10,14 +10,14 @@ This laboratory course is designed to run in parallel with the theory course **P
 The final goal is that each student or student team independently builds a **programmable 8-bit CPU in LogicCircuit**, with a small software toolchain written in Python:
 
 - an assembler that compiles `.asm` programs into program-memory images;
-- a microprogram compiler that compiles symbolic microinstructions into control-ROM images;
+- a microprogram ROM images generator: fill correct hardware control signal at specific address;
 - a tested LogicCircuit CPU that can load the generated memory images and execute programs.
 
 本实验课程与《计算机组成原理》理论课同步设计。理论课将8位CPU体系结构分解为计算、存储、控制、指令系统与CPU结构四个层次；实验课则沿着同样的分解路径，让学生逐步构建、测试、记录并最终集成一个可编程的8位CPU。
 
 最终目标是让学生独立完成一个基于 **LogicCircuit** 的可编程8位CPU，并配套完成一个用 Python 编写的小型软件工具链：
 - 将 `.asm` 汇编程序编译为程序存储器镜像的汇编器；
-- 将符号化微指令编译为控制ROM镜像的微程序编译器；
+- 微程序存储器镜像生成器：在对应地址生成正确的硬件控制信号。
 - 能够加载上述镜像并运行测试程序的 LogicCircuit CPU。
 ---
 
