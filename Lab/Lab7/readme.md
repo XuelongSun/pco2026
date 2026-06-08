@@ -21,11 +21,13 @@
 #### 3. 实验任务
 ##### 任务1: 完成CPU硬件架构
 基于[Lab5](/Lab/Lab5/readme.md)中的电路：
-+ 选择部分寄存器，充当IR, DST, SRC，MAR等
-+ 加入程序计数器
-+ 设计构建指令控制器CU-IR，其接受指令寄存器、ALU的PSW输出为输入，产生访问微程序存储器ROM的地址
-+ 设计构建控制单元，接受来自微程序存储单元输出的控制信号，转化成控制信号输出用于控制所有寄存器（将[Lab5](/Lab/Lab5/readme.md)中的寄存器控制器封装到控制单元CU中，其不再接受手动给定的`read`和`write`，而是从SRC/DST或微程序的控制输出中进行分离）、内存读写、ALU、PC等。
-+ 为了减少导线，可将同一个硬件单元的控制信号进行集线处理，比如将ALU-CS/ALU-WE/ALU-OP/ALU-PSW集合成一个6bit的控制信号，这样控制单元只输出一个6bit的ALU控制信号就好。
++ 【红色标号】选择部分寄存器，充当专用寄存器IR, DST, SRC，MAR等
++ 【橙色标号】选择部分寄存器，充当通用寄存器C, D等
++ 【绿色标号】加入程序计数器PC (program counter)、ALU和RAM（MC8X8）
++ 【紫色标号1】设计构建指令控制器CU-IR，其接受指令寄存器、ALU的PSW输出为输入，产生访问微程序存储器ROM的地址
++ 【紫色标号2】设计构建控制单元，接受来自微程序存储单元输出的控制信号，转化成控制信号输出用于控制所有寄存器（将[Lab5](/Lab/Lab5/readme.md)中的寄存器控制器封装到控制单元CU中，其不再接受手动给定的`R-read`和`W-write`，而是从SRC/DST或微程序的输出中进行分离）、内存读写、ALU、PC等。
++ 【蓝色标号】加入ROM（地址位/数据位位宽根据自己所设计的CPU决定）用于存储微程序
++ TIPS: 为了减少导线，可将同一个硬件单元的控制信号进行集线处理，比如将ALU-CS/ALU-WE/ALU-OP/ALU-PSW集合成一个6bit的控制信号，这样控制单元只输出一个6bit的ALU控制信号就好。
 
 完成上述步骤后，一个最小的可编程8bit CPU就诞生了：
 
@@ -121,7 +123,7 @@
   }
   ```
 + 微程序生成
-  微程序存储镜像的本质是在特定的地址处存储正确的硬件控制信号组成的二进制数，而这个地址由任务1中指令控制单元给出。所以，基本思路是遍历每一个存储位置（本质就是接收到的指令译码），按照上述`hardware.py`的内容生成对应的值：
+  微程序存储镜像的本质是在**特定的地址处**存储**正确的硬件控制信号组成的二进制数**，而这个地址由任务1中指令控制单元CU-IR给出。所以，基本思路是遍历每一个存储位置（本质就是接收到的指令译码），按照上述`hardware.py`的内容生成对应的值：
    ```py
    import hardware as hw
    # 初始化一个微程序数组, 先全初始化为HLT
@@ -146,32 +148,66 @@
         # 按照操作数数目的不同，分情况获得硬件控制信号
         if ir & (1 << ins.ADDR2_F):
             # 二地址指令
-            micro[addr] = ?
+            micro[addr] = get_addr2_exe_ins(ir, index) # 可以定义函数来实现
         elif ir & (1 << ins.ADDR1_F):
             # 一地址指令
-            micro[addr] = ?
+            micro[addr] = get_addr1_exe_ins(ir, index)
         else:
             # 零地址指令
-            micro[addr] = ?
+            micro[addr] = get_addr0_exe_ins(ir, index)
    # 最后将micro写入bin文件，生成存储器镜像
    with open(filename, 'wb') as fd:
         for var in micro:
             value = var.to_bytes(3, byteorder='little')
             fd.write(value)
    ```
-   完成代码，生成自己的微程序镜像`microprogram.bin`并加载到CPU的微程序存储器中并截图（局部即可）。
+   对于操作数数量不同的指令，得到硬件控制信号的方式不同，比如函数`get_addr2_exe_ins(ir, index)`, 可能的实现为：
+   
+   ```py
+    def get_addr2_exe_ins(ir, index):
+        # step1: 根据编码规则，先把信息从IR中分离出来
+        # [7]  [6:4]   [3:2]   [1:0]
+        #  1    OP    DST_AM  SRC_AM
+        op = ir & 0xf0
+        dst_am = (ir >> 2) & 0x03
+        src_am = ir & 0x03
+        
+        # step2：检查OP是否在instruction.py文件定义的指令集中
+        # 不存在的话直接指令周期计数器清零
+        instruction = ins.INSTRUCTION_SET[2]
+        if op not in instruction:
+            return hw.CYC_CLR
+        
+        # step3: 若step2检查后存在，则检查寻址方式的组合是否存在
+        am = (dst_am, src_am)
+        if am not in instruction[op]:
+            return hw.CYC_CLR
+        
+        # step4: 若step3检查后存在，则根据寻址方式的不同获得硬件控制信号
+        # 若index等于了指令的周期数，则意味着该指令已执行完成，需要清零指令周期计数器，以便开始下一条指令的取值环节
+        execute_ins = instruction[op][am]
+        if index < len(execute_ins):
+            return execute_ins[index]
+        else:
+            return hw.CYC_CLR  
+   ```
+   同样的，对于一地址和零地址指令所需要的函数`get_addr1_exe_ins()`和`get_addr0_exe_ins()`需要大家自己实现：
+
+   > 提示：对于1地址指令，`JMP,JNZ`这些指令需要检查`PSW`的状态，实现起来会有些许不同。
+
+   任务：创建`microprogram.py`文件，编写并完善上述代码，生成自己的微程序镜像`microprogram.bin`，然后加载到CPU的微程序存储器中并截图（局部即可），可参考理论课讲义:[第4章](/Chapter-4/readme.md)。
 
 #### 4. 实验报告提交
 把：
 1. LogicCircuit 工程文件 (`*.CircuitProject`)；
-2. `instruction.py`，`hardware.py``microprogram.py`
+2. `instruction.py`，`hardware.py`，`microprogram.py`
 3. `microprogram.bin`；
 4. `PCO_Lab7_姓名.md`；
 5. `images/` 中的截图；
 
 压缩成 `PCO_Lab7_姓名.zip`，邮件发送到`xsun@gzhu.edu.cn`,邮件主题：`PCO-Lab7-Assignment`
 
-截止日期（过期提交无成绩）: **2026年6月23日（第17周周二）前**。
+截止日期（过期提交无成绩）: **2026年6月30日（第18周周二）前**。
 
 #### 5. 报告评分标准
 
