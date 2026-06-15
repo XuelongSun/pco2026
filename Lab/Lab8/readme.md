@@ -26,10 +26,32 @@
 按照[`final_report.md`](/Lab/Lab8/final_report.md)的内容撰写最终报告。
 
 #### 4. 实验报告提交
-按照[`final_report.md`](/Lab/Lab8/final_report.md)的要求提交工程文件和python脚本提交工程文件。
+建议按照如下的文件组织方式提交所有文件(LogicCircuit 工程文件，python 文件， 汇编程序，微程序镜像和Markdown报告)：
 
-压缩成 `PCO_FinalReport_姓名.zip`，邮件发送到`xsun@gzhu.edu.cn`,邮件主题：`PCO-FinalReport`
+```text
+final_cpu_project/
+  hardware/
+    *.CircuitProject
+  software/
+    assembler.py
+    instruction.py
+    hardware.py
+    microprogram.py
+  programs/
+    add_demo.asm
+    add_demo.bin
+    if_demo.asm
+    if_demo.bin
+    loop_demo.asm
+    loop_demo.bin
+    microprogram.bin
+  report/
+    PCO_姓名_final_report.md
+    PCO_姓名_final_report.pdf
+    images/
+```
+将所有文件压缩成 `PCO_FinalReport_姓名.zip`，邮件发送到`xsun@gzhu.edu.cn`,邮件主题：`PCO-FinalReport`
 
 截止日期（过期提交无成绩）: **2026年7月12日（第19周周日）前**。
 
-**注：此提交就是期末考查，决定理论课成绩的50%，不按时提交视为缺考，请认真对待！！**
+**注：此提交就是期末考查，决定理论课成绩的50%，实验课成绩的30%, 不按时提交视为缺考，请认真对待！！**

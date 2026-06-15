@@ -64,5 +64,10 @@
   
   实验6 — 指令系统设计与汇编器
 
-+ [Lab 7](Lab/Lab7/readme.md)
-+ [Lab 8](Lab/Lab8/readme.md)
++ [Lab 7 — CPU hardware architecture 2 and microprogrammed control](Lab/Lab7/readme.md)
+  
+  实验7 — CPU硬件架构2与微程序控制
+
++ [Lab 8 — CPU Integration and Demonstration](Lab/Lab8/readme.md)
+  
+  实验8 — CPU集成与演示
